@@ -1,0 +1,42 @@
+{
+  "originHash" : "7c56fea9e1f9c0b20686d3c4c8acd5a53a7ff79741d4f81f20311e9c2e6c6e55",
+  "pins" : [
+    {
+      "identity" : "javascriptkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftwasm/JavaScriptKit",
+      "state" : {
+        "revision" : "1f54ba6b17f4d0f378f671210f7121a29996159e",
+        "version" : "0.47.1"
+      }
+    },
+    {
+      "identity" : "sailboat",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SailorWebFramework/Sailboat",
+      "state" : {
+        "branch" : "feature-fin",
+        "revision" : "de56f40f82acc3ea8050a50d9823c47180461373"
+      }
+    },
+    {
+      "identity" : "sailor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SailorWebFramework/Sailor",
+      "state" : {
+        "branch" : "feature-fin",
+        "revision" : "2ef1dd0623f7e8d47d5ad8f79f3ef4618e4b71d1"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax",
+      "state" : {
+        "revision" : "4799286537280063c85a32f09884cfbca301b1a1",
+        "version" : "602.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

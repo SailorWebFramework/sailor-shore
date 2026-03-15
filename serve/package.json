@@ -1,0 +1,14 @@
+{
+  "name": "sailor-shore-dev",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx vite --host"
+  },
+  "dependencies": {
+    "@bjorn3/browser_wasi_shim": "^0.3.0"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
