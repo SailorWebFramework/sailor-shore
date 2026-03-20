@@ -1,4 +1,6 @@
 import Sailor
+import Navigator
+import Tailwind
 
 @MainActor struct HeroSection: @preconcurrency Page {
     var body: some Page {
@@ -13,63 +15,72 @@ import Sailor
                             "-webkit-text-fill-color: transparent;"
                         }
                 }
+                .classes {
+                    TW.text5xl
+                    TW.fontBold
+                    TW.m0
+                }
                 .style {
-                    CSS.font(size: .px(56))
-                    CSS.font(weight: .bold)
-                    CSS.margin(.px(0))
                     "line-height: 1.1;"
                     "letter-spacing: -0.02em;"
                 }
 
                 Paragraph("Sailor is a Swift-native frontend web framework. Type-safe HTML, reactive state, and real CSS \u{2014} all compiled to WebAssembly. No JavaScript required.")
+                    .classes {
+                        TW.textXl
+                        TW.textSlate400
+                        TW.mAuto
+                        TW.mt6
+                        TW.mb8
+                    }
                     .style {
-                        CSS.font(size: .px(20))
-                        CSS.color(.hex("#94a3b8"))
                         CSS.max(width: .px(600))
-                        CSS.margin(.auto)
-                        "margin-top: 24px;"
-                        "margin-bottom: 40px;"
                     }
 
                 Div {
-                    Anchor("Get Started")
-                        .href("#get-started")
-                        .style {
-                            CSS.display(.inline)
-                            CSS.padding(.px(14))
-                            "padding-left: 32px; padding-right: 32px;"
-                            CSS.background(color: .hex("#3b82f6"))
-                            CSS.color(.white)
-                            CSS.textDecoration(line: .none)
-                            "border-radius: 8px;"
-                            CSS.font(weight: .weight(600))
-                            CSS.font(size: .px(16))
-                        }
+                    Link(to: SiteRoute.docs) {
+                        Span("Get Started")
+                            .classes {
+                                TW.inlineBlock
+                                TW.py3
+                                TW.px8
+                                TW.bgBlue500
+                                TW.textWhite
+                                TW.noUnderline
+                                TW.roundedLg
+                                TW.fontSemibold
+                                TW.textBase
+                            }
+                    }
                     Anchor("View on GitHub")
                         .href("https://github.com/SailorWebFramework")
+                        .classes {
+                            TW.inlineBlock
+                            TW.py3
+                            TW.px8
+                            TW.textSlate200
+                            TW.noUnderline
+                            TW.roundedLg
+                            TW.fontSemibold
+                            TW.textBase
+                        }
                         .style {
-                            CSS.display(.inline)
-                            CSS.padding(.px(14))
-                            "padding-left: 32px; padding-right: 32px;"
                             "border: 1px solid #334155;"
-                            CSS.color(.hex("#e2e8f0"))
-                            CSS.textDecoration(line: .none)
-                            "border-radius: 8px;"
-                            CSS.font(weight: .weight(600))
-                            CSS.font(size: .px(16))
                         }
                 }
-                .style {
-                    CSS.display(.flex)
-                    "gap: 16px;"
-                    "justify-content: center;"
+                .classes {
+                    TW.flex
+                    TW.gap4
+                    TW.justifyCenter
                 }
             }
+            .classes {
+                TW.textCenter
+                TW.mAuto
+                TW.p6
+            }
             .style {
-                CSS.text(align: .center)
                 CSS.max(width: .px(800))
-                CSS.margin(.auto)
-                CSS.padding(.px(24))
                 "padding-top: 140px; padding-bottom: 80px;"
             }
         }

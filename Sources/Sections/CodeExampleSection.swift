@@ -1,5 +1,6 @@
 import Sailor
 import Sailboat
+import Tailwind
 
 @MainActor struct CodeExampleSection: @preconcurrency Page {
 
@@ -9,136 +10,151 @@ import Sailboat
         Div {
             Div {
                 H2("See it in action")
-                    .style {
-                        CSS.font(size: .px(36))
-                        CSS.font(weight: .bold)
-                        CSS.text(align: .center)
-                        "margin-bottom: 16px;"
+                    .classes {
+                        TW.text4xl
+                        TW.fontBold
+                        TW.textCenter
+                        TW.mb4
                     }
 
                 Paragraph("This counter is live \u{2014} built with Sailor, running as WebAssembly in your browser right now.")
-                    .style {
-                        CSS.text(align: .center)
-                        CSS.color(.hex("#94a3b8"))
-                        "margin-bottom: 40px;"
+                    .classes {
+                        TW.textCenter
+                        TW.textSlate400
+                        TW.mb8
                     }
 
                 Div {
                     // Live demo side
                     Div {
                         H3("Live Demo")
-                            .style {
-                                CSS.font(size: .px(14))
-                                CSS.color(.hex("#94a3b8"))
-                                CSS.text(transform: .uppercase)
-                                "letter-spacing: 0.1em; margin: 0 0 24px 0;"
+                            .classes {
+                                TW.textSm
+                                TW.textSlate400
+                                TW.uppercase
                             }
+                            .style { "letter-spacing: 0.1em; margin: 0 0 24px 0;" }
                         Div {
                             Span("\(count)")
+                                .classes {
+                                    TW.text6xl
+                                    TW.fontBold
+                                }
                                 .style {
-                                    CSS.font(size: .px(64))
-                                    CSS.font(weight: .bold)
                                     "background: linear-gradient(135deg, #60a5fa, #a78bfa);"
                                     "-webkit-background-clip: text;"
                                     "-webkit-text-fill-color: transparent;"
                                 }
                         }
-                        .style {
-                            "margin-bottom: 24px;"
-                        }
+                        .classes { TW.mb6 }
                         Div {
                             Button("- Decrement")
                                 .onClick { count -= 1 }
+                                .classes {
+                                    TW.py2
+                                    TW.px5
+                                    TW.textSlate200
+                                    TW.roundedMd
+                                    TW.cursorPointer
+                                    TW.textSm
+                                    TW.borderNone
+                                }
                                 .style {
-                                    CSS.padding(.px(10))
-                                    "padding-left: 20px; padding-right: 20px;"
                                     CSS.background(color: .hex("#1e293b"))
-                                    CSS.color(.hex("#e2e8f0"))
                                     "border: 1px solid #334155;"
-                                    "border-radius: 6px;"
-                                    "cursor: pointer;"
-                                    CSS.font(size: .px(14))
                                 }
                             Button("Reset")
                                 .onClick { count = 0 }
+                                .classes {
+                                    TW.py2
+                                    TW.px5
+                                    TW.textSlate200
+                                    TW.roundedMd
+                                    TW.cursorPointer
+                                    TW.textSm
+                                    TW.borderNone
+                                }
                                 .style {
-                                    CSS.padding(.px(10))
-                                    "padding-left: 20px; padding-right: 20px;"
                                     CSS.background(color: .hex("#334155"))
-                                    CSS.color(.hex("#e2e8f0"))
-                                    "border: none; border-radius: 6px; cursor: pointer;"
-                                    CSS.font(size: .px(14))
                                 }
                             Button("+ Increment")
                                 .onClick { count += 1 }
-                                .style {
-                                    CSS.padding(.px(10))
-                                    "padding-left: 20px; padding-right: 20px;"
-                                    CSS.background(color: .hex("#3b82f6"))
-                                    CSS.color(.white)
-                                    "border: none; border-radius: 6px; cursor: pointer;"
-                                    CSS.font(size: .px(14))
+                                .classes {
+                                    TW.py2
+                                    TW.px5
+                                    TW.bgBlue500
+                                    TW.textWhite
+                                    TW.roundedMd
+                                    TW.cursorPointer
+                                    TW.textSm
+                                    TW.borderNone
                                 }
                         }
-                        .style {
-                            CSS.display(.flex)
-                            "gap: 12px;"
-                            "justify-content: center;"
+                        .classes {
+                            TW.flex
+                            TW.gap3
+                            TW.justifyCenter
                         }
                     }
-                    .style {
-                        CSS.padding(.px(40))
-                        CSS.background(color: .hex("#111827"))
-                        "border-radius: 12px;"
-                        "border: 1px solid #1e293b;"
-                        CSS.text(align: .center)
-                        "flex: 1;"
+                    .classes {
+                        TW.p8
+                        TW.bgGray900
+                        TW.roundedLg
+                        TW.textCenter
+                        TW.flex1
                     }
+                    .style { "border: 1px solid #1e293b;" }
 
                     // Code side
                     Div {
                         H3("The Swift Code")
-                            .style {
-                                CSS.font(size: .px(14))
-                                CSS.color(.hex("#94a3b8"))
-                                CSS.text(transform: .uppercase)
-                                "letter-spacing: 0.1em; margin: 0 0 16px 0;"
+                            .classes {
+                                TW.textSm
+                                TW.textSlate400
+                                TW.uppercase
                             }
-                        Preformattedtext {
-                            Code(codeExample)
+                            .style { "letter-spacing: 0.1em; margin: 0 0 16px 0;" }
+                        Pre {
+                            Code(counterCodeExample)
+                                .classes {
+                                    TW.fontMono
+                                    TW.textSlate200
+                                }
                                 .style {
-                                    CSS.font(family: .customIdent("JetBrains Mono, monospace"))
                                     CSS.font(size: .px(13))
-                                    CSS.color(.hex("#e2e8f0"))
                                     "line-height: 1.6;"
                                 }
                         }
+                        .classes {
+                            TW.m0
+                            TW.p6
+                            TW.roundedLg
+                            TW.overflowAuto
+                        }
                         .style {
-                            CSS.margin(.px(0))
-                            CSS.padding(.px(24))
                             CSS.background(color: .hex("#0f172a"))
-                            "border-radius: 8px;"
-                            CSS.overflow(.auto)
                         }
                     }
-                    .style {
-                        CSS.padding(.px(40))
-                        CSS.background(color: .hex("#111827"))
-                        "border-radius: 12px;"
-                        "border: 1px solid #1e293b;"
-                        "flex: 1;"
+                    .classes {
+                        TW.p8
+                        TW.bgGray900
+                        TW.roundedLg
+                        TW.flex1
                     }
+                    .style { "border: 1px solid #1e293b;" }
                 }
-                .style {
-                    CSS.display(.flex)
-                    "gap: 24px;"
-                    "flex-wrap: wrap;"
+                .classes {
+                    TW.flex
+                    TW.gap6
+                    TW.flexWrap
                 }
+            }
+            .classes {
+                TW.mAuto
+                TW.p6
             }
             .style {
                 CSS.max(width: .px(1100))
-                CSS.margin(.auto)
-                CSS.padding(.px(24))
                 "padding-top: 60px; padding-bottom: 60px;"
             }
         }
@@ -146,7 +162,7 @@ import Sailboat
     }
 }
 
-private let codeExample = """
+private let counterCodeExample = """
 @MainActor struct Counter: @preconcurrency Page {
     @State var count: Int = 0
 
@@ -158,8 +174,10 @@ private let codeExample = """
             Button("Reset")
                 .onClick { count = 0 }
         }
-        .style {
-            CSS.padding(.px(20))
+        .classes {
+            TW.p5
+            TW.flex
+            TW.gap3
         }
     }
 }

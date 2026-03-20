@@ -1,16 +1,16 @@
 import Sailor
+import Tailwind
 
 @MainActor struct FeaturesSection: @preconcurrency Page {
     var body: some Page {
         Div {
             Div {
                 H2("Why Sailor?")
-
-                    .style {
-                        CSS.font(size: .px(36))
-                        CSS.font(weight: .bold)
-                        CSS.text(align: .center)
-                        "margin-bottom: 48px;"
+                    .classes {
+                        TW.text4xl
+                        TW.fontBold
+                        TW.textCenter
+                        TW.mb8
                     }
 
                 Div {
@@ -51,10 +51,12 @@ import Sailor
                     "gap: 24px;"
                 }
             }
+            .classes {
+                TW.mAuto
+                TW.p6
+            }
             .style {
                 CSS.max(width: .px(1100))
-                CSS.margin(.auto)
-                CSS.padding(.px(24))
                 "padding-top: 60px; padding-bottom: 60px;"
             }
         }
@@ -76,24 +78,26 @@ import Sailor
     var body: some Page {
         Div {
             Span(icon)
-                .style { CSS.font(size: .px(32)) }
+                .classes { TW.text3xl }
             H3(title)
-                .style {
-                    CSS.font(size: .px(20))
-                    CSS.font(weight: .weight(600))
-                    "margin: 12px 0 8px 0;"
+                .classes {
+                    TW.textXl
+                    TW.fontSemibold
                 }
+                .style { "margin: 12px 0 8px 0;" }
             Paragraph(description)
-                .style {
-                    CSS.color(.hex("#94a3b8"))
-                    CSS.font(size: .px(15))
-                    "margin: 0;"
+                .classes {
+                    TW.textSlate400
+                    TW.textSm
+                    TW.m0
                 }
         }
+        .classes {
+            TW.p7
+            TW.bgGray900
+            TW.roundedLg
+        }
         .style {
-            CSS.padding(.px(28))
-            CSS.background(color: .hex("#111827"))
-            "border-radius: 12px;"
             "border: 1px solid #1e293b;"
         }
     }

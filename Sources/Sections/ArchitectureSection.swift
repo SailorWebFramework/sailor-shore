@@ -1,22 +1,23 @@
 import Sailor
+import Tailwind
 
 @MainActor struct ArchitectureSection: @preconcurrency Page {
     var body: some Page {
         Div {
             Div {
                 H2("Architecture")
-                    .style {
-                        CSS.font(size: .px(36))
-                        CSS.font(weight: .bold)
-                        CSS.text(align: .center)
-                        "margin-bottom: 16px;"
+                    .classes {
+                        TW.text4xl
+                        TW.fontBold
+                        TW.textCenter
+                        TW.mb4
                     }
 
                 Paragraph("Four repos, one pipeline. Each piece does one thing well.")
-                    .style {
-                        CSS.text(align: .center)
-                        CSS.color(.hex("#94a3b8"))
-                        "margin-bottom: 48px;"
+                    .classes {
+                        TW.textCenter
+                        TW.textSlate400
+                        TW.mb8
                     }
 
                 Div {
@@ -26,10 +27,10 @@ import Sailor
                         color: "#f59e0b"
                     )
                     Span("\u{2192}")
-                        .style {
-                            CSS.font(size: .px(32))
-                            CSS.color(.hex("#475569"))
-                            "align-self: center;"
+                        .classes {
+                            TW.text3xl
+                            TW.textSlate500
+                            TW.selfCenter
                         }
                     ArchCard(
                         name: "Shipwright",
@@ -37,10 +38,10 @@ import Sailor
                         color: "#10b981"
                     )
                     Span("\u{2192}")
-                        .style {
-                            CSS.font(size: .px(32))
-                            CSS.color(.hex("#475569"))
-                            "align-self: center;"
+                        .classes {
+                            TW.text3xl
+                            TW.textSlate500
+                            TW.selfCenter
                         }
                     ArchCard(
                         name: "Sailor",
@@ -48,13 +49,13 @@ import Sailor
                         color: "#3b82f6"
                     )
                 }
-                .style {
-                    CSS.display(.flex)
-                    "gap: 16px;"
-                    "justify-content: center;"
-                    "align-items: stretch;"
-                    "flex-wrap: wrap;"
+                .classes {
+                    TW.flex
+                    TW.gap4
+                    TW.justifyCenter
+                    TW.flexWrap
                 }
+                .style { "align-items: stretch;" }
 
                 Div {
                     ArchCard(
@@ -63,16 +64,18 @@ import Sailor
                         color: "#a78bfa"
                     )
                 }
-                .style {
-                    CSS.display(.flex)
-                    "justify-content: center;"
-                    "margin-top: 24px;"
+                .classes {
+                    TW.flex
+                    TW.justifyCenter
+                    TW.mt6
                 }
+            }
+            .classes {
+                TW.mAuto
+                TW.p6
             }
             .style {
                 CSS.max(width: .px(1100))
-                CSS.margin(.auto)
-                CSS.padding(.px(24))
                 "padding-top: 60px; padding-bottom: 60px;"
             }
         }
@@ -94,27 +97,31 @@ import Sailor
     var body: some Page {
         Div {
             H3(name)
+                .classes {
+                    TW.textXl
+                    TW.fontSemibold
+                }
                 .style {
-                    CSS.font(size: .px(20))
-                    CSS.font(weight: .weight(600))
                     CSS.color(.hex(color))
                     "margin: 0 0 8px 0;"
                 }
             Paragraph(description)
-                .style {
-                    CSS.color(.hex("#94a3b8"))
-                    CSS.font(size: .px(14))
-                    "margin: 0;"
+                .classes {
+                    TW.textSlate400
+                    TW.textSm
+                    TW.m0
                 }
         }
+        .classes {
+            TW.p6
+            TW.bgGray900
+            TW.roundedLg
+            TW.flex1
+        }
         .style {
-            CSS.padding(.px(24))
-            CSS.background(color: .hex("#111827"))
-            "border-radius: 12px;"
             "border: 1px solid #1e293b;"
             "border-top: 3px solid \(color);"
             CSS.max(width: .px(260))
-            "flex: 1;"
         }
     }
 }
