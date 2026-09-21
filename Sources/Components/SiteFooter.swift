@@ -1,4 +1,5 @@
 import Sailor
+import Tailwind
 
 @MainActor struct SiteFooter: @preconcurrency Page {
     var body: some Page {
@@ -6,35 +7,39 @@ import Sailor
             Div {
                 Div {
                     Span("Sailor Web Framework")
-                        .style {
-                            CSS.font(weight: .weight(600))
-                            CSS.font(size: .px(16))
+                        .classes {
+                            TW.fontSemibold
+                            TW.textBase
                         }
                     Paragraph("Built with Swift. Compiled to WebAssembly. This site is written in Sailor.")
-                        .style {
-                            CSS.color(.hex("#64748b"))
-                            CSS.font(size: .px(14))
-                            "margin: 8px 0 0 0;"
+                        .classes {
+                            TW.textSlate500
+                            TW.textSm
+                            TW.mt2
                         }
+                        .style { "margin-bottom: 0;" }
                 }
                 Div {
                     Anchor("GitHub")
                         .href("https://github.com/SailorWebFramework")
-                        .style {
-                            CSS.color(.hex("#94a3b8"))
-                            CSS.textDecoration(line: .none)
-                            CSS.font(size: .px(14))
+                        .classes {
+                            TW.textSlate400
+                            TW.noUnderline
+                            TW.textSm
                         }
                 }
             }
+            .classes {
+                TW.flex
+                TW.justifyBetween
+                TW.itemsCenter
+                TW.mAuto
+                TW.p6
+                TW.flexWrap
+                TW.gap4
+            }
             .style {
-                CSS.display(.flex)
-                "justify-content: space-between;"
-                "align-items: center;"
                 CSS.max(width: .px(1100))
-                CSS.margin(.auto)
-                CSS.padding(.px(24))
-                "flex-wrap: wrap; gap: 16px;"
             }
         }
         .style {

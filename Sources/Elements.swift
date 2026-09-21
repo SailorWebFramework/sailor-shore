@@ -16,4 +16,4 @@ typealias Footer = HTML.Footer
 typealias Ul = HTML.Ul
 typealias Li = HTML.Li
 typealias Code = HTML.Code
-typealias Preformattedtext = HTML.Preformattedtext
+typealias Pre = HTML.Pre

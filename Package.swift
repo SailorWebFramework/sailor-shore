@@ -8,13 +8,17 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swiftwasm/JavaScriptKit", from: "0.47.0"),
-        .package(url: "https://github.com/SailorWebFramework/Sailor", branch: "feature-fin"),
+        .package(url: "https://github.com/SailorWebFramework/Sailor", from: "0.4.0"),
+        .package(path: "../Navigator"),
+        .package(path: "../Fleet-Tailwind"),
     ],
     targets: [
         .executableTarget(
             name: "SailorShore",
             dependencies: [
                 "Sailor",
+                "Navigator",
+                .product(name: "Tailwind", package: "Fleet-Tailwind"),
                 .product(name: "JavaScriptKit", package: "JavaScriptKit"),
             ],
             path: "Sources"
