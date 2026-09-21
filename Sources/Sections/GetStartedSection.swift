@@ -1,15 +1,17 @@
 import Sailor
+import Navigator
+import Tailwind
 
 @MainActor struct GetStartedSection: @preconcurrency Page {
     var body: some Page {
         Div {
             Div {
                 H2("Get Started")
-                    .style {
-                        CSS.font(size: .px(36))
-                        CSS.font(weight: .bold)
-                        CSS.text(align: .center)
-                        "margin-bottom: 40px;"
+                    .classes {
+                        TW.text4xl
+                        TW.fontBold
+                        TW.textCenter
+                        TW.mb8
                     }
 
                 Div {
@@ -47,11 +49,34 @@ import Sailor
                     "grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));"
                     "gap: 20px;"
                 }
+
+                Div {
+                    Link(to: SiteRoute.docs) {
+                        Span("Read the Full Docs")
+                            .classes {
+                                TW.inlineBlock
+                                TW.py3
+                                TW.px8
+                                TW.bgBlue500
+                                TW.textWhite
+                                TW.noUnderline
+                                TW.roundedLg
+                                TW.fontSemibold
+                                TW.textBase
+                            }
+                    }
+                }
+                .classes {
+                    TW.textCenter
+                    TW.mt8
+                }
+            }
+            .classes {
+                TW.mAuto
+                TW.p6
             }
             .style {
                 CSS.max(width: .px(1100))
-                CSS.margin(.auto)
-                CSS.padding(.px(24))
                 "padding-top: 60px; padding-bottom: 80px;"
             }
         }
@@ -73,47 +98,54 @@ import Sailor
     var body: some Page {
         Div {
             Span(number)
-                .style {
-                    CSS.display(.inline)
-                    CSS.width(.px(32))
-                    "height: 32px; line-height: 32px;"
-                    CSS.text(align: .center)
-                    CSS.background(color: .hex("#3b82f6"))
-                    CSS.color(.white)
-                    CSS.font(weight: .bold)
-                    CSS.font(size: .px(14))
-                    "border-radius: 50%;"
-                    "margin-bottom: 12px;"
+                .classes {
+                    TW.inlineBlock
+                    TW.w8
+                    TW.textCenter
+                    TW.bgBlue500
+                    TW.textWhite
+                    TW.fontBold
+                    TW.textSm
+                    TW.roundedFull
+                    TW.mb3
                 }
+                .style { "height: 32px; line-height: 32px;" }
             H3(title)
-                .style {
-                    CSS.font(size: .px(16))
-                    CSS.font(weight: .weight(600))
-                    "margin: 0 0 12px 0;"
+                .classes {
+                    TW.textBase
+                    TW.fontSemibold
+                    TW.mb3
                 }
-            Preformattedtext {
+                .style { "margin-top: 0;" }
+            Pre {
                 Code(code)
+                    .classes {
+                        TW.fontMono
+                        TW.textIndigo300
+                    }
                     .style {
-                        CSS.font(family: .customIdent("JetBrains Mono, monospace"))
                         CSS.font(size: .px(12))
-                        CSS.color(.hex("#a5b4fc"))
                         "line-height: 1.5;"
                     }
             }
+            .classes {
+                TW.m0
+                TW.p4
+                TW.roundedMd
+                TW.overflowAuto
+            }
             .style {
-                CSS.margin(.px(0))
-                CSS.padding(.px(16))
                 CSS.background(color: .hex("#0f172a"))
-                "border-radius: 6px;"
-                CSS.overflow(.auto)
                 "white-space: pre-wrap;"
                 "word-break: break-word;"
             }
         }
+        .classes {
+            TW.p6
+            TW.bgGray900
+            TW.roundedLg
+        }
         .style {
-            CSS.padding(.px(24))
-            CSS.background(color: .hex("#111827"))
-            "border-radius: 12px;"
             "border: 1px solid #1e293b;"
         }
     }
